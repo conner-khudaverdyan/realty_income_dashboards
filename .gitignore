@@ -4,6 +4,7 @@ logs/
 plugins/
 dags/update_data.py
 dags/__pycache__/
+dags/.DS_Store
 
 # Data files/directories
 Other Data/
@@ -12,4 +13,6 @@ stock_data copy/
 o-20231231.htm
 
 # Other
+.DS_Store/
 sec_data.ipynb
+"Tableau Workbooks/.~realty_income__74739.twbr"

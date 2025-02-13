@@ -112,9 +112,14 @@ lease_exp_columns = lease_exp[2] + lease_exp[1][1:]
 lease_exp_data = lease_exp[3:]
 lease_exp_df = pd.DataFrame(data = lease_exp_data, columns = lease_exp_columns)
 
+# Geographic Diversification table
+geo_div = get_raw_table(tables, 7)
+geo_div_columns = geo_div[0]
+geo_div_data = geo_div[1:]
+geo_div_df = pd.DataFrame(data = geo_div_data, columns = geo_div_columns)
 
-cleaned_tables = [ind_df, ptc_df, client_div_df, lease_exp_df]
-table_names = ['Top 10 Industry Concentrations', 'Property Type Composition', 'Client Diversification', 'Lease Expiration']
+cleaned_tables = [ind_df, ptc_df, client_div_df, lease_exp_df, geo_di_df]
+table_names = ['Top 10 Industry Concentrations', 'Property Type Composition', 'Client Diversification', 'Lease Expiration', 'Geographic Diversification']
 
 # Save the cleaned_tables into realty_income.xlsx workbook 
 save_clean_tables(cleaned_tables = cleaned_tables, table_names = table_names)

@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import openpyxl
 import os
 
-api_key = '58b3a632df2c3f11e0772622f4e875119062b467'
+api_key = 'Insert API Key'
 
 # Function to fetch data from Tiingo
 headers = {
@@ -16,8 +16,7 @@ headers = {
 
 ## File paths
 dag_folder = os.path.dirname(os.path.abspath(__file__))
-#data_dir = "/Users/connerkhudaverdyan/Desktop/Projects/retail_data/stock_data"
-#data_dir = os.path.join(dag_folder, '..', 'stock_data') 
+
 stock_data_dir = "/opt/airflow/stock_data"  # path inside the container
 o_file = os.path.join(stock_data_dir, 'realty_income.xlsx')
 competitor_file = os.path.join(stock_data_dir,'competitors.xlsx')
@@ -58,11 +57,10 @@ def fetch_daily_data(symbol, date):
 # Function to append the data to the Excel file
 def update_o_file(**kwargs):
     # Get the execution date from the Airflow context
-    execution_date_UTC = kwargs['execution_date']
-    execution_date_PST = execution_date_UTC - timedelta(days=1) 
+    execution_date = kwargs['execution_date']
     
     # Convert the execution date to a string in the required format
-    date = execution_date_PST.strftime('%Y-%m-%d')
+    date = execution_date.strftime('%Y-%m-%d')
     # Fetch new data 
     o_stock_data = fetch_daily_data(symbol="O", date =date)
     
@@ -152,7 +150,7 @@ with DAG(
     )
 
     # Define task to update competitor sheets daily
-    #update_competitor_task = PythonOperator(
-      #  task_id='update_competitor_file',
-       # python_callable=update_competitor_file
-    #)
+    update_competitor_task = PythonOperator(
+        task_id='update_competitor_file',
+        python_callable=update_competitor_file
+    )
