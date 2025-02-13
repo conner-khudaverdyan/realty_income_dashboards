@@ -13,6 +13,6 @@ stock_data copy/
 o-20231231.htm
 
 # Other
-.DS_Store/
+.DS_Store
 sec_data.ipynb
 "Tableau Workbooks/.~realty_income__74739.twbr".DS_Store
