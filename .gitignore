@@ -1,0 +1,15 @@
+# Airflow Files/Directories
+config/
+logs/
+plugins/
+dags/update_data.py
+dags/__pycache__/
+
+# Data files/directories
+Other Data/
+stock_data/
+stock_data copy/
+o-20231231.htm
+
+# Other
+sec_data.ipynb
