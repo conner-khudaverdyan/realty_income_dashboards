@@ -5960,7 +5960,7 @@
             <column-instance column='[date]' derivation='Day-Trunc' name='[tdy:date:ok]' pivot='key' type='ordinal' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.0548r2z0eztwy81h6d9ya1yy3gui].[Action (DAY(date))]'>
-            <groupfilter function='member' level='[tdy:date:ok]' member='#2025-01-23 00:00:00#' user:ui-action-filter='[Action1_E41AEBFA59094E19891BE7245779E4AF]' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+            <groupfilter function='member' level='[tdy:date:ok]' member='#2025-01-20 00:00:00#' user:ui-action-filter='[Action1_E41AEBFA59094E19891BE7245779E4AF]' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
           <filter class='categorical' column='[federated.0548r2z0eztwy81h6d9ya1yy3gui].[none:1Y (copy)_5259289613312307201:nk]'>
             <groupfilter function='member' level='[none:1Y (copy)_5259289613312307201:nk]' member='&quot;6M&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
@@ -9449,8 +9449,14 @@ Portfolio Percentage Overtime
             <column datatype='integer' name='[Quarter]' role='dimension' type='quantitative' />
             <column datatype='integer' name='[Value (Real Gross Output - Q)]' role='measure' type='quantitative' />
             <column datatype='date' name='[Year (Real Gross Output - Q)]' role='dimension' type='quantitative' />
+            <column-instance column='[Value (Real Gross Output - Q)]' derivation='Sum' name='[diff:sum:Value (Real Gross Output - Q):qk]' pivot='key' type='quantitative'>
+              <table-calc diff-options='Relative' ordering-type='Rows' type='Difference'>
+                <address>
+                  <value>-1</value>
+                </address>
+              </table-calc>
+            </column-instance>
             <column-instance column='[Industry (Real Gross Output - Q)]' derivation='None' name='[none:Industry (Real Gross Output - Q):nk]' pivot='key' type='nominal' />
-            <column-instance column='[Value (Real Gross Output - Q)]' derivation='Sum' name='[sum:Value (Real Gross Output - Q):qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_5259289614410543126]' derivation='Quarter-Trunc' name='[tqr:Calculation_5259289614410543126:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.0548r2z0eztwy81h6d9ya1yy3gui].[none:Industry (Real Gross Output - Q):nk]'>
@@ -9491,7 +9497,7 @@ Portfolio Percentage Overtime
             </style>
           </pane>
         </panes>
-        <rows>[federated.0548r2z0eztwy81h6d9ya1yy3gui].[sum:Value (Real Gross Output - Q):qk]</rows>
+        <rows>[federated.0548r2z0eztwy81h6d9ya1yy3gui].[diff:sum:Value (Real Gross Output - Q):qk]</rows>
         <cols>[federated.0548r2z0eztwy81h6d9ya1yy3gui].[tqr:Calculation_5259289614410543126:qk]</cols>
       </table>
       <simple-id uuid='{58E2D08D-10B4-4BFF-98F8-A1B1313F595A}' />
@@ -10082,7 +10088,7 @@ Portfolio Percentage Overtime
             <column-instance column='[date]' derivation='Day-Trunc' name='[tdy:date:ok]' pivot='key' type='ordinal' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.0548r2z0eztwy81h6d9ya1yy3gui].[Action (DAY(date))]'>
-            <groupfilter function='member' level='[tdy:date:ok]' member='#2025-01-23 00:00:00#' user:ui-action-filter='[Action1_E41AEBFA59094E19891BE7245779E4AF]' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+            <groupfilter function='member' level='[tdy:date:ok]' member='#2025-01-20 00:00:00#' user:ui-action-filter='[Action1_E41AEBFA59094E19891BE7245779E4AF]' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
           <slices>
             <column>[federated.0548r2z0eztwy81h6d9ya1yy3gui].[Action (DAY(date))]</column>
@@ -12840,7 +12846,7 @@ Portfolio Percentage Overtime
       </cards>
       <simple-id uuid='{87FF38CE-1DA2-4A58-9E53-FD098E8A5DA4}' />
     </window>
-    <window class='dashboard' maximized='true' name='retail_focus' tab-color='#4f779a'>
+    <window class='dashboard' name='retail_focus' tab-color='#4f779a'>
       <viewpoints>
         <viewpoint name='lease_exp'>
           <zoom type='entire-view' />
@@ -13131,7 +13137,7 @@ Portfolio Percentage Overtime
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='59' />
+      <active id='22' />
       <simple-id uuid='{DD5E7B6A-2417-4FB6-BF7D-180B0BF448CB}' />
     </window>
     <window class='worksheet' name='O_Close ' tab-color='#f66273'>
@@ -13653,7 +13659,7 @@ Portfolio Percentage Overtime
       </cards>
       <simple-id uuid='{1A470754-7461-46FF-A960-722BAF770707}' />
     </window>
-    <window class='dashboard' name='geo_diversification ' tab-color='#6e597f'>
+    <window class='dashboard' maximized='true' name='geo_diversification ' tab-color='#6e597f'>
       <viewpoints>
         <viewpoint name='Europe (2)'>
           <zoom type='entire-view' />
@@ -13669,7 +13675,7 @@ Portfolio Percentage Overtime
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='-1' />
+      <active id='77' />
       <simple-id uuid='{175D06CB-53A2-4A40-B8CA-679483B7B2E9}' />
     </window>
     <window class='worksheet' name='Europe'>
